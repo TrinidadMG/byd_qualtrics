@@ -1,5 +1,4 @@
 # BYD_QUALTRICS - Integration sample between SAP Business ByDesign and Qualtrics
-[![SAP](https://i.imgur.com/HBBBde7.png)](https://cloudplatform.sap.com)
 
 This sample code creates a Qualtrics survey based on a SAP Business ByDesign Service Order Name. 
 
