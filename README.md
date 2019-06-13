@@ -9,7 +9,7 @@ Please check for more details at the folder [BYD_TO_QUALTRICS_NODEJSAPP](https:/
 
 ### SAP Cloud Platform Integration package
 The zip file [Qualtrics_ByD_IntegrationFlow.zip](https://github.com/TrinidadMG/byd_qualtrics/blob/master/Qualtrics_ByD_IntegrationFlow.zip) is an SAP Cloud Platform Integration Package.
-This package can be imported into your SAP Cloud Platform Integration tenant.
+This package can be imported into your SAP Cloud Platform Integration tenant to be checked and run.
 
 The scenario implemented by this package is the following:
 - The flow is started after a user fills a specific Qualtrics survey we have configured with an action (the Qualtrics action will call our CPI flow)
