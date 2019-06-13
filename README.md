@@ -11,9 +11,11 @@ Please check for more details at the folder [BYD_TO_QUALTRICS_NODEJSAPP](https:/
 The zip file [Qualtrics_ByD_IntegrationFlow.zip](https://github.com/TrinidadMG/byd_qualtrics/blob/master/Qualtrics_ByD_IntegrationFlow.zip) is an SAP Cloud Platform Integration Package.
 This package can be imported into your SAP Cloud Platform Integration tenant to be checked and run.
 
-The scenario implemented by this package is the following:
-- The flow is started after a user fills a specific Qualtrics survey we have configured with an action (the Qualtrics action will call our CPI flow)
-- The flow is preparing a POST call to ByDesign out of the received Qualtrics survey response details 
+The scenario flow implemented by this package is the following:
+- Gets execyted after a user fills a specific Qualtrics survey we have configured with an action (the Qualtrics action will call our CPI flow)
+- Several steps transforms the response details received from Qualtrics into the ByDesign format. 
+- The ByDesign Header and Body contents are formated.
+- A POST call to ByDesign is executed to update a Service Order with the survey response details. 
 
 The scenario makes use of some [SAP Business ByDesign custom OData services](https://github.com/B1SA/hackathon/tree/master/ByDBackend), some of them can be found at the [Service Order custom OData service sample(https://github.com/SAP/sapbydesign-api-samples/blob/master/End-to-End%20Scenarios/Custom%20OData%20Service/tmserviceorder.xml)
 
