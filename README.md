@@ -1,46 +1,24 @@
-# BYD_QUALTRICS - Integration sample between SAP Business ByDesign and Qualtrics
+# BYD_QUALTRICS - Integration scenario between SAP Business ByDesign and Qualtrics
 
-This sample code creates a Qualtrics survey based on a SAP Business ByDesign Service Order Name. 
+This package contains 2 items:
+- An [SAP Cloud Platform Integration package](#) that stores survey reponse details into SAP Business ByDesing
+- A [sample code nodejs application](#) that creates a Qualtrics survey based on a SAP Business ByDesign Service Order Name. 
 
-### Overview
-- It is coded in [NodeJ](https://nodejs.org/en/)
-- Can be deployed anywhere and I suggest to do it in the  [SAP Cloud Platform](https://cloudplatform.sap.com). 
-- It makes use of the [SAP Qualtrics APIs](https://api.qualtrics.com/), [SAP Business ByDesign custom OData services](https://github.com/B1SA/hackathon/tree/master/ByDBackend) and more specificaly of the [Service Order custom OData service sample(https://github.com/SAP/sapbydesign-api-samples/blob/master/End-to-End%20Scenarios/Custom%20OData%20Service/tmserviceorder.xml)
+### nodejs sample application
+Please check for more details the folder BYD_TO_QUALTRICS_NODEJSAPP here.
 
-### Installation in the Cloud
-Clone this repository
-```sh
-$ git clone https://github.com/TrinidadMG/byd_qualtrics.git
-```
-Give a name to your app on the [manifest.yml](manifest.yml)
+### SAP Cloud Platform Integration package
+The zip file [Qualtrics_ByD_IntegrationFlow.zip](https://github.com/B1SA/hackathon/wiki/FAQ#what-are-the-judgement-criteria) is an SAP Cloud Platform Integration Package.
+This package can be imported into your SAP Cloud Platform Integration tenant.
 
-From the root directory, using the [Cloud Foundry CLI](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html) push your app to the SAP CP Cloud Foundry:
-```
-$ cf push --random-route
-```
->*--random-route will avoids name colisions with others that deploy this same app on SCP. You can choose your own app name by changing the application names in the [manifest](manifest.yml)*
+The scenario implemented by this package is the following:
+- The flow is started after a user fills a specific Qualtrics survey we have configured with an action (the Qualtrics action will call our CPI flow)
+- The flow is preparing a POST call to ByDesign out of the received Qualtrics survey response details 
 
-*It's ok if you get an error at this point*
-
-The application to run requires a QUALTRICS_URL and a QUALTRICS_TOKEN, please check the [SAP Qualtrics APIs](https://api.qualtrics.com/) for more details how to get the QUALTRICS_TOKEN.
-```sh
-$ cf set-env <yourAppName> QUALTRICS_URL <YOUR QUALTRICS_URL>
-$ cf set-env <yourAppName> QUALTRICS_TOKEN <YOUR QUALTRICS_TOKEN>
-```
-
-This application is using SAP Cloud Platform destinations to configure SAP Business ByDesign url and credentials. 
-Please check the prerequisites and environment setup instructions at https://github.com/B1SA/cfDestinations/blob/master/README.md to create a destination and required services before starting your app again.
-
-Restart your application (so it can read the new environment variables)
-```sh
-$ cf restart <your app name set on the manifest.yml>
-```
-
-Access the app from the URL route shown in the terminal.
+The scenario makes use of some [SAP Business ByDesign custom OData services](https://github.com/B1SA/hackathon/tree/master/ByDBackend), some of them can be found at the [Service Order custom OData service sample(https://github.com/SAP/sapbydesign-api-samples/blob/master/End-to-End%20Scenarios/Custom%20OData%20Service/tmserviceorder.xml)
 
 ### Usage
-- Create a Survey Definition in Qualtrics based on an SAP Business ByDesign Service Order ID: /CreateQualtricsSurvey with a body providing the Service Order ID, for example {"ServiceOrderID": "0000000000011DDFBEA73CE3794B5D1A"}
-- Get a Survey Definition from Qualtrics: /GetSurveyDef with a body providing the Survey ID, for example {"SurveyID": "SV_XYZ"}
+You can inport the SAP Cloud Platform Integration package zip file [Qualtrics_ByD_IntegrationFlow.zip](https://github.com/B1SA/hackathon/wiki/FAQ#what-are-the-judgement-criteria) into your SAP Cloud Platform Integration tenant and configure it for your specific ByDesign and Qualtrics tenants.
 
 # License
-qualtrics_byd sample is released under the terms of the MIT license. See [LICENSE](LICENSE) for more information or see https://opensource.org/licenses/MIT.
+The sample code and package published here are released under the terms of the MIT license. See [LICENSE](LICENSE) for more information or see https://opensource.org/licenses/MIT.
