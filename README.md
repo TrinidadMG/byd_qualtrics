@@ -1,7 +1,7 @@
 # BYD_QUALTRICS - Integration scenario between SAP Business ByDesign and Qualtrics
 
 This package contains 2 items:
-- An SAP Cloud Platform Integration package that stores survey reponse details into SAP Business ByDesing
+- An SAP Cloud Platform Integration package that stores survey reponse details into SAP Business ByDesign
 - A sample code nodejs application that creates a Qualtrics survey based on a SAP Business ByDesign Service Order Name. 
 
 ### nodejs sample application
